@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
                 boosting = false;
             }
 
-            rb.velocity += vel;
+            rb.linearVelocity += vel;
         }
         else if (boosting)
         {
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
 
             vel *= boostAmount;
 
-            rb.velocity += vel;
+            rb.linearVelocity += vel;
 
             boosting = false;
         }
@@ -67,11 +67,11 @@ public class Player : MonoBehaviour
     {
         if (value.Get<float>() == 0)
         {
-            rb.drag = .5f;
+            rb.linearDamping = .5f;
         }
         else
         {
-            rb.drag = brakePower;
+            rb.linearDamping = brakePower;
         }
     }
 
